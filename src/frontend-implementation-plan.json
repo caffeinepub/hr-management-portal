@@ -1,0 +1,81 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Fix missing Add Employee button in EmployeeDirectory page",
+  "requirements": [
+    {
+      "id": "REQ-24",
+      "summary": "Debug and fix the Add Employee button rendering issue by adding console logging to verify user profile data, role checks, and button conditional rendering logic",
+      "acceptanceCriteria": [
+        "Console logs show the current user's profile data including role",
+        "Console logs show the result of role permission checks (canAddEmployee)",
+        "Console logs confirm whether the Add Employee button component is being rendered",
+        "Button visibility logic is verified against actual user role from useCallerUserProfile"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/EmployeeDirectory.tsx",
+          "operation": "modify",
+          "description": "Add comprehensive console logging to debug Add Employee button visibility. Log userProfile data (including role field), canAddEmployee boolean result, button rendering decision, and any conditional blocks that might affect rendering. Add logs at component mount, when userProfile changes, and before the button JSX to trace the exact reason for visibility issues."
+        }
+      ]
+    },
+    {
+      "id": "REQ-25",
+      "summary": "Verify that useCallerUserProfile hook is correctly fetching the user profile and returning valid role data after authentication",
+      "acceptanceCriteria": [
+        "User profile query successfully executes after Internet Identity login",
+        "Profile data includes valid role field matching backend EmployeeRole type",
+        "Query loading and error states are properly handled",
+        "Profile data is available to EmployeeDirectory component"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/useQueries.ts",
+          "operation": "modify",
+          "description": "Add console logging to useCallerUserProfile hook to track query lifecycle: log when the query is enabled, when actor becomes available, query execution start, successful data fetch (with full profile object including role), and any errors. Verify that the hook properly waits for actor initialization and returns profile data with valid role field."
+        },
+        {
+          "path": "frontend/src/pages/EmployeeDirectory.tsx",
+          "operation": "modify",
+          "description": "Add console logging to track useCallerUserProfile hook state in EmployeeDirectory component. Log isLoading, isFetching, isError, and the full userProfile object when it changes. Verify that profile data with role is received after login completes."
+        }
+      ]
+    },
+    {
+      "id": "REQ-26",
+      "summary": "Add fallback rendering for the Add Employee button that displays it with full opacity and prominent styling regardless of role checks, with a visible debug mode label",
+      "acceptanceCriteria": [
+        "Add Employee button is always visible on the Employee Directory page",
+        "Button displays with clear visual styling (green background, white text, appropriate padding)",
+        "Button includes text label 'Add Employee' or 'Add Employee (Debug Mode)'",
+        "Button is positioned prominently near the page header or search bar",
+        "Clicking the button opens the AddEmployeeModal component"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/EmployeeDirectory.tsx",
+          "operation": "modify",
+          "description": "Add an unconditional fallback Add Employee button that always renders regardless of role checks. Style it with green background (bg-green-600 hover:bg-green-700), white text, appropriate padding (px-4 py-2), and rounded corners. Position it prominently in the page header area next to or above the search bar. Include text 'Add Employee (Debug Mode)' and wire it to open the AddEmployeeModal when clicked. Keep this as a separate button from any role-based button to ensure visibility during debugging."
+        }
+      ]
+    },
+    {
+      "id": "REQ-27",
+      "summary": "Ensure the Add Employee button is placed outside any conditional rendering blocks that might prevent its display, positioning it as a direct child of the main page container",
+      "acceptanceCriteria": [
+        "Button is rendered in the JSX before any data-dependent conditional blocks",
+        "Button is not wrapped in fragments or conditional expressions that could hide it",
+        "Button remains visible even when employee list is empty or loading",
+        "Button layout does not conflict with search bar or filters positioning"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/EmployeeDirectory.tsx",
+          "operation": "modify",
+          "description": "Refactor the Add Employee button placement to ensure it renders as a direct child of the main page container, outside all conditional blocks. Position it in the header section before the search bar and employee list rendering logic. Remove any wrapping conditional expressions, fragments, or permission checks that could hide the button. Ensure the button's container div is always rendered regardless of loading states, error states, or employee data availability."
+        }
+      ]
+    }
+  ]
+}

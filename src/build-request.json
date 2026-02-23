@@ -1,0 +1,92 @@
+{
+  "kind": "build_request",
+  "title": "Fix missing Add Employee button in EmployeeDirectory page",
+  "projectName": "HR Management Portal",
+  "priority": "high",
+  "requirements": [
+    {
+      "id": "REQ-24",
+      "text": "Debug and fix the Add Employee button rendering issue in frontend/src/pages/EmployeeDirectory.tsx by adding console logging to verify user profile data, role checks, and button conditional rendering logic",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-last"
+        ],
+        "quotes": [
+          "in dropt i am still not seeing any add employee button"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Console logs show the current user's profile data including role",
+        "Console logs show the result of role permission checks (canAddEmployee)",
+        "Console logs confirm whether the Add Employee button component is being rendered",
+        "Button visibility logic is verified against actual user role from useCallerUserProfile"
+      ]
+    },
+    {
+      "id": "REQ-25",
+      "text": "Verify that useCallerUserProfile hook in frontend/src/hooks/useQueries.ts is correctly fetching the user profile and returning valid role data after authentication",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-last"
+        ]
+      },
+      "acceptanceCriteria": [
+        "User profile query successfully executes after Internet Identity login",
+        "Profile data includes valid role field matching backend EmployeeRole type",
+        "Query loading and error states are properly handled",
+        "Profile data is available to EmployeeDirectory component"
+      ]
+    },
+    {
+      "id": "REQ-26",
+      "text": "Add fallback rendering for the Add Employee button in EmployeeDirectory.tsx that displays the button with full opacity and prominent styling regardless of role checks, with a visible label indicating it's in debug mode",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-last"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Add Employee button is always visible on the Employee Directory page",
+        "Button displays with clear visual styling (green background, white text, appropriate padding)",
+        "Button includes text label 'Add Employee' or 'Add Employee (Debug Mode)'",
+        "Button is positioned prominently near the page header or search bar",
+        "Clicking the button opens the AddEmployeeModal component"
+      ]
+    },
+    {
+      "id": "REQ-27",
+      "text": "Ensure the Add Employee button in EmployeeDirectory.tsx is placed outside any conditional rendering blocks that might be preventing its display, positioning it as a direct child of the main page container",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-last"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Button is rendered in the JSX before any data-dependent conditional blocks",
+        "Button is not wrapped in fragments or conditional expressions that could hide it",
+        "Button remains visible even when employee list is empty or loading",
+        "Button layout does not conflict with search bar or filters positioning"
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not modify frontend/src/hooks/useInternetIdentity.ts or frontend/src/hooks/useActor.ts",
+    "Do not modify backend/main.mo employee role definitions",
+    "Preserve existing AddEmployeeModal and AddEmployeeForm component functionality",
+    "Keep the role-based permission model intact for future use"
+  ],
+  "nonGoals": [
+    "Redesigning the entire Employee Directory page layout",
+    "Adding new employee management features beyond button visibility",
+    "Modifying backend authorization logic",
+    "Changing the authentication flow or Internet Identity integration"
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}

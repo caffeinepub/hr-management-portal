@@ -1,0 +1,317 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 11,
+  "summary": "Professional HR Management Portal similar to Zoho People with comprehensive employee lifecycle management including onboarding, leave tracking, attendance, shift scheduling, payroll basics, HR help desk, HR letters generation, and offboarding. Features admin panel with role-based access control, reporting, and data export capabilities.",
+  "architectural_notes": [
+    "Frontend: React with Tailwind CSS for modern responsive UI",
+    "Role-based access control system for different HR roles and permissions",
+    "Modular architecture with separate modules for each HR function"
+  ],
+  "known_issues": [
+    "Authentication UI not displaying - login/signup page missing on initial load",
+    "Add Employee button or functionality not visible on current page after deployment - user unable to find employee data entry interface",
+    "User still reports Add Employee button not visible in draft deployment after multiple fix attempts - indicates persistent UI rendering or permissions issue"
+  ],
+  "isFixRequest": true,
+  "existing_features": [
+    {
+      "id": "feature-create-employee-management-module-with-comprehensive-profile-management-including-personal-details-contact-information-emergency-contacts-job-details-department-designation-reporting-manager-employment-type-joining-date-and-employee-id-generation",
+      "title": "Create employee management module with comprehensive profile management including personal details, contact information, emergency contacts, job details, department, designation, reporting manager, employment type, joining date, and employee ID generation",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-leave-tracking-and-approval-system-with-leave-types-annual-sick-casual-unpaid-leave-balance-management-leave-request-submission-multi-level-approval-workflow-leave-calendar-view-and-leave-history-tracking",
+      "title": "Build leave tracking and approval system with leave types (annual, sick, casual, unpaid), leave balance management, leave request submission, multi-level approval workflow, leave calendar view, and leave history tracking",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-attendance-management-system-with-clock-in-clock-out-functionality-daily-attendance-records-attendance-reports-late-arrival-tracking-early-departure-tracking-attendance-calendar-view-and-monthly-attendance-summaries",
+      "title": "Create attendance management system with clock-in/clock-out functionality, daily attendance records, attendance reports, late arrival tracking, early departure tracking, attendance calendar view, and monthly attendance summaries",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-payroll-basics-functionality-with-salary-structure-configuration-salary-components-basic-allowances-deductions-monthly-payroll-processing-payslip-generation-payslip-viewing-and-download-and-payroll-history-tracking",
+      "title": "Build payroll basics functionality with salary structure configuration, salary components (basic, allowances, deductions), monthly payroll processing, payslip generation, payslip viewing and download, and payroll history tracking",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-hr-help-desk-ticketing-system-with-ticket-creation-ticket-categories-it-hr-facilities-others-priority-levels-ticket-assignment-to-hr-staff-status-tracking-open-in-progress-resolved-closed-comment-threads-and-ticket-resolution-workflow",
+      "title": "Create HR help desk ticketing system with ticket creation, ticket categories (IT, HR, facilities, others), priority levels, ticket assignment to HR staff, status tracking (open, in-progress, resolved, closed), comment threads, and ticket resolution workflow",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-admin-panel-with-role-based-access-control-supporting-roles-super-admin-hr-manager-hr-staff-manager-employee-with-granular-permissions-for-module-access-data-visibility-and-action-capabilities",
+      "title": "Create admin panel with role-based access control supporting roles (super admin, HR manager, HR staff, manager, employee) with granular permissions for module access, data visibility, and action capabilities",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-design-modern-responsive-frontend-interface-using-react-and-tailwind-css-with-professional-business-aesthetic-clean-layouts-intuitive-navigation-with-sidebar-menu-dashboard-views-with-widgets-and-cards-data-tables-with-sorting-and-pagination-form-layouts-with-validation-feedback-modal-dialogs-and-mobile-responsive-design-that-works-seamlessly-on-desktop-tablet-and-mobile-devices",
+      "title": "Design modern responsive frontend interface using React and Tailwind CSS with professional business aesthetic, clean layouts, intuitive navigation with sidebar menu, dashboard views with widgets and cards, data tables with sorting and pagination, form layouts with validation feedback, modal dialogs, and mobile-responsive design that works seamlessly on desktop, tablet, and mobile devices",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-frontend-app-tsx-to-display-a-dedicated-login-welcome-page-when-user-is-not-authenticated-showing-a-clear-login-with-internet-identity-button-prominently-before-any-hr-portal-content-is-accessible",
+      "title": "Update frontend App.tsx to display a dedicated login/welcome page when user is not authenticated, showing a clear 'Login with Internet Identity' button prominently before any HR portal content is accessible",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-authentication-state-is-properly-checked-and-enforced-throughout-the-application-preventing-access-to-any-protected-routes-or-components-before-user-login-is-completed",
+      "title": "Ensure authentication state is properly checked and enforced throughout the application, preventing access to any protected routes or components before user login is completed",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-an-add-employee-button-prominently-displayed-on-the-employee-directory-page-that-opens-a-modal-dialog-for-adding-new-employee-data",
+      "title": "Create an 'Add Employee' button prominently displayed on the Employee Directory page that opens a modal dialog for adding new employee data",
+      "reqIds": [
+        "REQ-16"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-a-comprehensive-employee-creation-form-with-fields-for-personal-details-full-name-email-phone-job-details-department-designation-employee-type-joining-date-and-contact-information-within-the-add-employee-modal",
+      "title": "Build a comprehensive employee creation form with fields for personal details (full name, email, phone), job details (department, designation, employee type, joining date), and contact information within the Add Employee modal",
+      "reqIds": [
+        "REQ-17"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-react-query-mutation-hook-in-usequeries-ts-for-calling-the-backend-create-employee-function-with-loading-and-error-state-management",
+      "title": "Create React Query mutation hook in useQueries.ts for calling the backend create employee function, with loading and error state management",
+      "reqIds": [
+        "REQ-19"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-wire-the-employee-creation-form-submission-to-the-mutation-hook-showing-loading-spinner-during-submission-success-toast-notification-on-completion-and-error-messages-if-submission-fails",
+      "title": "Wire the employee creation form submission to the mutation hook, showing loading spinner during submission, success toast notification on completion, and error messages if submission fails",
+      "reqIds": [
+        "REQ-20"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-investigate-and-fix-the-add-employee-button-visibility-issue-in-the-employeedirectory-component-frontend-src-pages-employeedirectory-tsx-to-ensure-it-displays-prominently-on-the-page-after-authentication",
+      "title": "Investigate and fix the 'Add Employee' button visibility issue in the EmployeeDirectory component (frontend/src/pages/EmployeeDirectory.tsx) to ensure it displays prominently on the page after authentication",
+      "reqIds": [
+        "REQ-21"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-verify-the-role-based-permission-logic-in-employeedirectory-tsx-correctly-allows-hr-staff-hr-managers-and-super-admins-to-see-the-add-employee-button-based-on-their-user-profile-role",
+      "title": "Verify the role-based permission logic in EmployeeDirectory.tsx correctly allows HR staff, HR managers, and super admins to see the 'Add Employee' button based on their user profile role",
+      "reqIds": [
+        "REQ-22"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-the-addemployeemodal-state-management-in-employeedirectory-tsx-properly-controls-the-modal-visibility-and-the-modal-opens-correctly-when-the-add-employee-button-is-clicked",
+      "title": "Ensure the AddEmployeeModal state management in EmployeeDirectory.tsx properly controls the modal visibility and the modal opens correctly when the Add Employee button is clicked",
+      "reqIds": [
+        "REQ-23"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-debug-and-fix-the-add-employee-button-rendering-issue-in-frontend-src-pages-employeedirectory-tsx-by-adding-console-logging-to-verify-user-profile-data-role-checks-and-button-conditional-rendering-logic",
+      "title": "Debug and fix the Add Employee button rendering issue in frontend/src/pages/EmployeeDirectory.tsx by adding console logging to verify user profile data, role checks, and button conditional rendering logic",
+      "reqIds": [
+        "REQ-24"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-verify-that-usecalleruserprofile-hook-in-frontend-src-hooks-usequeries-ts-is-correctly-fetching-the-user-profile-and-returning-valid-role-data-after-authentication",
+      "title": "Verify that useCallerUserProfile hook in frontend/src/hooks/useQueries.ts is correctly fetching the user profile and returning valid role data after authentication",
+      "reqIds": [
+        "REQ-25"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-fallback-rendering-for-the-add-employee-button-in-employeedirectory-tsx-that-displays-the-button-with-full-opacity-and-prominent-styling-regardless-of-role-checks-with-a-visible-label-indicating-it-s-in-debug-mode",
+      "title": "Add fallback rendering for the Add Employee button in EmployeeDirectory.tsx that displays the button with full opacity and prominent styling regardless of role checks, with a visible label indicating it's in debug mode",
+      "reqIds": [
+        "REQ-26"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-the-add-employee-button-in-employeedirectory-tsx-is-placed-outside-any-conditional-rendering-blocks-that-might-be-preventing-its-display-positioning-it-as-a-direct-child-of-the-main-page-container",
+      "title": "Ensure the Add Employee button in EmployeeDirectory.tsx is placed outside any conditional rendering blocks that might be preventing its display, positioning it as a direct child of the main page container",
+      "reqIds": [
+        "REQ-27"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Employee management module with profile management and directory",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Employee onboarding workflow system",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Leave tracking and approval system",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Attendance management system",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Shift scheduling module",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Payroll basics functionality",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "HR help desk ticketing system",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "HR letters generation system",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "Employee offboarding process management",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-10",
+      "summary": "Admin panel with role-based access control",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-11",
+      "summary": "Reporting and analytics capabilities",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-12",
+      "summary": "Data export options for reports and records",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-13",
+      "summary": "Modern responsive design with React and Tailwind CSS",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-15",
+      "summary": "Implement employee onboarding workflow system with multi-step process including document collection, task assignments, training schedules, equipment allocation, and onboarding checklist tracking with progress indicators",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-18",
+      "summary": "Implement shift scheduling module with shift templates (morning, afternoon, night), shift assignment to employees, shift rotation management, shift calendar view, shift swap requests, and shift coverage tracking",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-21",
+      "summary": "Implement HR letters generation system with letter templates (offer letter, experience certificate, relieving letter, increment letter, transfer letter), dynamic field population, letter preview, PDF generation, and letter history tracking",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-22",
+      "summary": "Build employee offboarding process management with resignation submission, notice period tracking, exit interview scheduling, clearance checklist (IT, finance, admin), final settlement calculation, exit document generation, and offboarding completion tracking",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-24",
+      "summary": "Implement comprehensive reporting and analytics capabilities including employee demographics reports, attendance reports, leave reports, payroll reports, turnover analytics, department-wise statistics, visual charts and graphs, date range filtering, and report scheduling",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-25",
+      "summary": "Add data export options for all reports and records with support for CSV and PDF formats, allowing users to export filtered and formatted data from employee lists, attendance records, leave history, payroll data, and all report types",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-28",
+      "summary": "Implement backend function in main.mo to create and store new employee records with auto-generated employee ID, accepting employee details and storing them in the employees Map",
+      "reqIds": [
+        "REQ-18"
+      ],
+      "status": "pending"
+    }
+  ],
+  "projectName": "HR Management Portal",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

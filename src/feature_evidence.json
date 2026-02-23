@@ -1,0 +1,86 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-debug-and-fix-the-add-employee-button-rendering-issue-in-frontend-src-pages-employeedirectory-tsx-by-adding-console-logging-to-verify-user-profile-data-role-checks-and-button-conditional-rendering-logic",
+      "featureTitle": "Debug and fix the Add Employee button rendering issue in frontend/src/pages/EmployeeDirectory.tsx by adding console logging to verify user profile data, role checks, and button conditional rendering logic",
+      "files": [
+        "frontend/src/pages/EmployeeDirectory.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-24"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-verify-that-usecalleruserprofile-hook-in-frontend-src-hooks-usequeries-ts-is-correctly-fetching-the-user-profile-and-returning-valid-role-data-after-authentication",
+      "featureTitle": "Verify that useCallerUserProfile hook in frontend/src/hooks/useQueries.ts is correctly fetching the user profile and returning valid role data after authentication",
+      "files": [
+        "frontend/src/hooks/useQueries.ts",
+        "frontend/src/pages/EmployeeDirectory.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-25"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-fallback-rendering-for-the-add-employee-button-in-employeedirectory-tsx-that-displays-the-button-with-full-opacity-and-prominent-styling-regardless-of-role-checks-with-a-visible-label-indicating-it-s-in-debug-mode",
+      "featureTitle": "Add fallback rendering for the Add Employee button in EmployeeDirectory.tsx that displays the button with full opacity and prominent styling regardless of role checks, with a visible label indicating it's in debug mode",
+      "files": [
+        "frontend/src/pages/EmployeeDirectory.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-26"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-ensure-the-add-employee-button-in-employeedirectory-tsx-is-placed-outside-any-conditional-rendering-blocks-that-might-be-preventing-its-display-positioning-it-as-a-direct-child-of-the-main-page-container",
+      "featureTitle": "Ensure the Add Employee button in EmployeeDirectory.tsx is placed outside any conditional rendering blocks that might be preventing its display, positioning it as a direct child of the main page container",
+      "files": [
+        "frontend/src/pages/EmployeeDirectory.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-27"
+      ],
+      "confidence": "high"
+    }
+  ]
+}
