@@ -1,0 +1,48 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-fix-the-addemployeeform-component-to-correctly-handle-the-mutation-response-and-properly-submit-all-required-fields-ensure-date-conversion-to-nanoseconds-optional-field-handling-and-error-states-are-handled-correctly-so-the-form-submits-without-silent-failures",
+      "featureTitle": "Fix the AddEmployeeForm component to correctly handle the mutation response and properly submit all required fields. Ensure date conversion to nanoseconds, optional field handling, and error states are handled correctly so the form submits without silent failures.",
+      "files": [
+        "frontend/src/components/employees/AddEmployeeForm.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-fix-the-react-query-hooks-in-usequeries-ts-related-to-employee-fetching-ensure-the-query-that-loads-the-employee-list-used-in-employeedirectory-and-employee-detail-used-in-employeeprofile-properly-awaits-the-actor-handles-loading-error-states-and-invalidates-the-cache-after-a-mutation-so-updated-data-is-reflected-in-the-ui",
+      "featureTitle": "Fix the React Query hooks in useQueries.ts related to employee fetching. Ensure the query that loads the employee list (used in EmployeeDirectory) and employee detail (used in EmployeeProfile) properly awaits the actor, handles loading/error states, and invalidates the cache after a mutation so updated data is reflected in the UI.",
+      "files": [
+        "frontend/src/components/employees/AddEmployeeModal.tsx",
+        "frontend/src/hooks/useQueries.ts",
+        "frontend/src/pages/EmployeeDirectory.tsx",
+        "frontend/src/pages/EmployeeProfile.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

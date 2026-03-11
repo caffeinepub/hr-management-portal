@@ -1,0 +1,71 @@
+{
+  "kind": "coverage_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-24T13:30:36.927Z",
+  "sources": {
+    "buildRequest": true,
+    "implementationPlan": true
+  },
+  "requirements": {
+    "total": 3,
+    "implemented": 2,
+    "items": [
+      {
+        "id": "REQ-1",
+        "summary": "Investigate and fix the backend query/mutation for adding employees. Ensure the `addEmployee` function in the main actor correctly stores employee data and returns a valid response without errors. Verify that the EmployeeDetails type fields and storage map operations are correct.",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-2",
+        "summary": "Fix the AddEmployeeForm component to correctly handle the mutation response and properly submit all required fields. Ensure date conversion to nanoseconds, optional field handling, and error states are handled correctly so the form submits without silent failures.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/employees/AddEmployeeForm.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/employees/AddEmployeeForm.tsx"
+        ]
+      },
+      {
+        "id": "REQ-3",
+        "summary": "Fix the React Query hooks in useQueries.ts related to employee fetching. Ensure the query that loads the employee list (used in EmployeeDirectory) and employee detail (used in EmployeeProfile) properly awaits the actor, handles loading/error states, and invalidates the cache after a mutation so updated data is reflected in the UI.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/hooks/useQueries.ts",
+          "frontend/src/pages/EmployeeDirectory.tsx",
+          "frontend/src/pages/EmployeeProfile.tsx",
+          "frontend/src/components/employees/AddEmployeeModal.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/hooks/useQueries.ts",
+          "frontend/src/pages/EmployeeDirectory.tsx",
+          "frontend/src/pages/EmployeeProfile.tsx",
+          "frontend/src/components/employees/AddEmployeeModal.tsx"
+        ]
+      }
+    ]
+  },
+  "changedFiles": [
+    "backend/main.mo",
+    "build-request.json",
+    "caffeine.lock.json",
+    "feature_evidence.json",
+    "frontend-file-summaries.txt",
+    "frontend-implementation-plan.json",
+    "frontend/src/backend.d.ts",
+    "frontend/src/backend.ts",
+    "frontend/src/components/employees/AddEmployeeForm.tsx",
+    "frontend/src/components/employees/AddEmployeeModal.tsx",
+    "frontend/src/declarations/backend.did.d.ts",
+    "frontend/src/declarations/backend.did.js",
+    "frontend/src/hooks/useQueries.ts",
+    "frontend/src/pages/EmployeeDirectory.tsx",
+    "frontend/src/pages/EmployeeProfile.tsx",
+    "project_state.json",
+    "scratch/component-selection.json",
+    "spec.md",
+    "spec_vs_diff_report.json"
+  ]
+}

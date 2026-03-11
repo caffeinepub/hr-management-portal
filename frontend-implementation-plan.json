@@ -1,0 +1,56 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Fix employee details not loading when adding employee data",
+  "requirements": [
+    {
+      "id": "REQ-2",
+      "summary": "Fix the AddEmployeeForm component to correctly handle mutation response and properly submit all required fields with correct data transformation and error handling",
+      "acceptanceCriteria": [
+        "Filling out the AddEmployeeForm and submitting creates a new employee record",
+        "Validation errors are shown inline for missing or invalid fields",
+        "A success toast or confirmation is shown after a successful submission",
+        "The employee directory list refreshes and displays the newly added employee after submission"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/employees/AddEmployeeForm.tsx",
+          "operation": "modify",
+          "description": "Fix form submission logic to ensure all required fields are properly validated and transformed before submission. Verify date conversion to nanoseconds is correct (should multiply milliseconds by 1_000_000). Ensure optional fields like personalEmail are handled correctly (passed as empty array [] when not provided, or as [value] when provided). Fix error state handling to show validation errors inline. Ensure the mutation's onSuccess callback properly closes the modal and shows a success toast. Add proper error handling in onError callback to display meaningful error messages to the user."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Fix React Query hooks in useQueries.ts to properly fetch employee list and details with correct loading/error states and cache invalidation after mutations",
+      "acceptanceCriteria": [
+        "EmployeeDirectory page shows a loading spinner while employee data is being fetched",
+        "EmployeeDirectory page shows an error state or empty state when no employees exist or fetch fails",
+        "After adding an employee, the employee list query is invalidated and the new record appears in the directory",
+        "EmployeeProfile page correctly loads and displays the details of a selected employee"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/useQueries.ts",
+          "operation": "modify",
+          "description": "Fix the useGetAllEmployees query hook to properly await the actor and handle loading/error states. Ensure the query is enabled only when actor is available. Fix the useAddEmployee mutation hook to properly invalidate the 'allEmployees' query key after successful mutation so the employee list refreshes. Verify the useGetEmployee query hook properly handles employee ID parameter and returns appropriate loading/error states. Ensure all employee-related queries use consistent query keys for proper cache invalidation. Add retry logic with appropriate retry count for transient failures."
+        },
+        {
+          "path": "frontend/src/pages/EmployeeDirectory.tsx",
+          "operation": "modify",
+          "description": "Update the EmployeeDirectory page to properly display loading spinner using the LoadingSpinner component when employee data is being fetched. Show the EmptyState component when no employees exist or when the fetch returns an empty array. Display an error state with appropriate message when the query fails. Ensure the employee list properly refreshes after the AddEmployeeModal closes and a new employee is added. Verify that the search and filter functionality works correctly with the refreshed data."
+        },
+        {
+          "path": "frontend/src/pages/EmployeeProfile.tsx",
+          "operation": "modify",
+          "description": "Fix the EmployeeProfile page to properly handle loading states while fetching employee details using the LoadingSpinner component. Display an error state with appropriate message when the employee fetch fails or the employee ID is invalid. Ensure all employee detail fields are properly displayed once loaded. Add a fallback for when employee data is null or undefined. Verify that navigation from the directory to the profile page passes the correct employee ID parameter."
+        },
+        {
+          "path": "frontend/src/components/employees/AddEmployeeModal.tsx",
+          "operation": "modify",
+          "description": "Ensure the AddEmployeeModal properly handles the onSuccess callback from AddEmployeeForm to close the modal after successful submission. Verify the modal resets its internal state when closed so it doesn't retain stale form data on next open. Ensure the onOpenChange handler properly communicates with the parent component to trigger any necessary refresh logic in EmployeeDirectory."
+        }
+      ]
+    }
+  ]
+}

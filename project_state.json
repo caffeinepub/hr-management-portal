@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "Employee management app with CSV import/export functionality. Currently experiencing an issue where employee details are not loading when trying to add employee data.",
+  "architectural_notes": [],
+  "known_issues": [
+    "Employee details not loading when trying to add employee data"
+  ],
+  "isFixRequest": true,
+  "existing_features": [
+    {
+      "id": "feature-fix-the-addemployeeform-component-to-correctly-handle-the-mutation-response-and-properly-submit-all-required-fields-ensure-date-conversion-to-nanoseconds-optional-field-handling-and-error-states-are-handled-correctly-so-the-form-submits-without-silent-failures",
+      "title": "Fix the AddEmployeeForm component to correctly handle the mutation response and properly submit all required fields. Ensure date conversion to nanoseconds, optional field handling, and error states are handled correctly so the form submits without silent failures.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-fix-the-react-query-hooks-in-usequeries-ts-related-to-employee-fetching-ensure-the-query-that-loads-the-employee-list-used-in-employeedirectory-and-employee-detail-used-in-employeeprofile-properly-awaits-the-actor-handles-loading-error-states-and-invalidates-the-cache-after-a-mutation-so-updated-data-is-reflected-in-the-ui",
+      "title": "Fix the React Query hooks in useQueries.ts related to employee fetching. Ensure the query that loads the employee list (used in EmployeeDirectory) and employee detail (used in EmployeeProfile) properly awaits the actor, handles loading/error states, and invalidates the cache after a mutation so updated data is reflected in the UI.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Investigate and fix the backend query/mutation for adding employees. Ensure the `addEmployee` function in the main actor correctly stores employee data and returns a valid response without errors. Verify that the EmployeeDetails type fields and storage map operations are correct.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "HR Management Portal",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

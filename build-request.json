@@ -1,0 +1,77 @@
+{
+  "kind": "build_request",
+  "title": "Fix employee details not loading when adding employee data",
+  "projectName": "HR Management Portal",
+  "priority": "high",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Investigate and fix the backend query/mutation for adding employees. Ensure the `addEmployee` function in the main actor correctly stores employee data and returns a valid response without errors. Verify that the EmployeeDetails type fields and storage map operations are correct.",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-9"
+        ],
+        "quotes": [
+          "employee details not loading , i am trying to add employee data"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Calling the addEmployee backend function with valid data successfully persists the employee record",
+        "The backend returns a success response without trapping or returning an error variant",
+        "Previously added employees can be retrieved via the getEmployee or listEmployees backend functions"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Fix the AddEmployeeForm component to correctly handle the mutation response and properly submit all required fields. Ensure date conversion to nanoseconds, optional field handling, and error states are handled correctly so the form submits without silent failures.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-9"
+        ],
+        "quotes": [
+          "employee details not loading , i am trying to add employee data"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Filling out the AddEmployeeForm and submitting creates a new employee record",
+        "Validation errors are shown inline for missing or invalid fields",
+        "A success toast or confirmation is shown after a successful submission",
+        "The employee directory list refreshes and displays the newly added employee after submission"
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Fix the React Query hooks in useQueries.ts related to employee fetching. Ensure the query that loads the employee list (used in EmployeeDirectory) and employee detail (used in EmployeeProfile) properly awaits the actor, handles loading/error states, and invalidates the cache after a mutation so updated data is reflected in the UI.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-9"
+        ],
+        "quotes": [
+          "employee details not loading , i am trying to add employee data"
+        ]
+      },
+      "acceptanceCriteria": [
+        "EmployeeDirectory page shows a loading spinner while employee data is being fetched",
+        "EmployeeDirectory page shows an error state or empty state when no employees exist or fetch fails",
+        "After adding an employee, the employee list query is invalidated and the new record appears in the directory",
+        "EmployeeProfile page correctly loads and displays the details of a selected employee"
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not change the EmployeeDetails type structure in the backend unless it is causing a compilation error",
+    "Do not modify files in frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, or frontend/src/components/ui"
+  ],
+  "nonGoals": [
+    "Adding new employee fields or changing the employee data model",
+    "Changes to CSV import/export functionality",
+    "Redesigning the AddEmployeeForm UI"
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}
